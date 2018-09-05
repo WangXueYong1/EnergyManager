@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>查询设备列表</title>
+<link rel="shortcut icon" href="#" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/jquery-1.11.1.min.js"></script>
 </head>
@@ -50,7 +51,7 @@ $(function () {
 	
 	function findFloor(){
         var $buildId=$("#buildingList").val();
-        $.get("http://localhost:8080/ssm0523/DeviceInformation/findFloorByBuilding.action",{"buildingId":$buildId},function(obj){
+        $.get("${pageContext.request.contextPath }/DeviceInformation/findFloorByBuilding.action",{"buildingId":$buildId},function(obj){
            var $city=$("#floorList");
             $city.html("");
             if(obj!=null){
@@ -63,9 +64,9 @@ $(function () {
 	function findRoom(){
 		 var $buildId=$("#buildingList").val();
 	     var $floor=$("#floorList").val();
-	     $.get("http://localhost:8080/ssm0523/DeviceInformation/findRoomByBuildingFloor.action",{"buildingId":$buildId,"floor":$floor},function(obj){
+	     $.get("${pageContext.request.contextPath }/DeviceInformation/findRoomByBuildingFloor.action",{"buildingId":$buildId,"floor":$floor},function(obj){
 	        var $city=$("#roomList");
-	         $city.html("");
+	         $city.html("<option value=''>-请选择-</option>");
 	         if(obj!=null){
 	             $(obj).each(function(){
 	                 $city.append($("<option value='"+this+"'>"+this+"房间</option>"));
@@ -82,7 +83,7 @@ $(function () {
 		 var buildId=$("#buildingList").val();
        var floor=$("#floorList").val();
        var room=$("#roomList").val();
-       $.get("http://localhost:8080/ssm0523/DeviceInformation/findDeviceByDeviceInformation.action",
+       $.get("${pageContext.request.contextPath }/DeviceInformation/findDeviceByDeviceInformation.action",
        		{"buildingId":buildId,"floor":floor,"room":room},function(obj){
           var $device=$("#deviceList");
            $device.html("<option>-请选择-</option>");
@@ -103,7 +104,7 @@ $(function () {
             type: "get",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            url: "http://localhost:8080/ssm0523/DeviceInformation/findDeviceByDeviceInformation.action",
+            url: "${pageContext.request.contextPath }/DeviceInformation/findDeviceByDeviceInformation.action",
             data:{"buildingId":buildId,"floor":floor,"room":room},
             success: function (data) {
                

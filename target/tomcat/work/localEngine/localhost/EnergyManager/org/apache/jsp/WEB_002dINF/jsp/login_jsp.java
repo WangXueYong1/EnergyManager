@@ -59,6 +59,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<HTML xmlns=\"http://www.w3.org/1999/xhtml\">\r\n");
       out.write("<HEAD>\r\n");
       out.write("<META http-equiv=Content-Type content=\"text/html; charset=utf-8\">\r\n");
+      out.write("<link rel=\"shortcut icon\" href=\"#\" />\r\n");
       out.write("<STYLE type=text/css>\r\n");
       out.write("BODY {\r\n");
       out.write("\tFONT-SIZE: 12px;\r\n");

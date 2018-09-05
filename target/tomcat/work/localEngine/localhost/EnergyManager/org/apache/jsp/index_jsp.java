@@ -56,6 +56,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
       out.write("<title>Insert title here</title>\r\n");
+      out.write("<link rel=\"shortcut icon\" href=\"#\" />\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t");

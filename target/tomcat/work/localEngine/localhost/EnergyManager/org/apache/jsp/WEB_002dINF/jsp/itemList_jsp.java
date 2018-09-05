@@ -58,6 +58,7 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("<title>查询设备列表</title>\r\n");
+      out.write("<link rel=\"shortcut icon\" href=\"#\" />\r\n");
       out.write("<script type=\"text/javascript\"\r\n");
       out.write("\tsrc=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
@@ -103,7 +104,9 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\r\n");
       out.write("\tfunction findFloor(){\r\n");
       out.write("        var $buildId=$(\"#buildingList\").val();\r\n");
-      out.write("        $.get(\"http://localhost:8080/ssm0523/DeviceInformation/findFloorByBuilding.action\",{\"buildingId\":$buildId},function(obj){\r\n");
+      out.write("        $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/DeviceInformation/findFloorByBuilding.action\",{\"buildingId\":$buildId},function(obj){\r\n");
       out.write("           var $city=$(\"#floorList\");\r\n");
       out.write("            $city.html(\"\");\r\n");
       out.write("            if(obj!=null){\r\n");
@@ -116,9 +119,11 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\tfunction findRoom(){\r\n");
       out.write("\t\t var $buildId=$(\"#buildingList\").val();\r\n");
       out.write("\t     var $floor=$(\"#floorList\").val();\r\n");
-      out.write("\t     $.get(\"http://localhost:8080/ssm0523/DeviceInformation/findRoomByBuildingFloor.action\",{\"buildingId\":$buildId,\"floor\":$floor},function(obj){\r\n");
+      out.write("\t     $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/DeviceInformation/findRoomByBuildingFloor.action\",{\"buildingId\":$buildId,\"floor\":$floor},function(obj){\r\n");
       out.write("\t        var $city=$(\"#roomList\");\r\n");
-      out.write("\t         $city.html(\"\");\r\n");
+      out.write("\t         $city.html(\"<option value=''>-请选择-</option>\");\r\n");
       out.write("\t         if(obj!=null){\r\n");
       out.write("\t             $(obj).each(function(){\r\n");
       out.write("\t                 $city.append($(\"<option value='\"+this+\"'>\"+this+\"房间</option>\"));\r\n");
@@ -135,7 +140,9 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t var buildId=$(\"#buildingList\").val();\r\n");
       out.write("       var floor=$(\"#floorList\").val();\r\n");
       out.write("       var room=$(\"#roomList\").val();\r\n");
-      out.write("       $.get(\"http://localhost:8080/ssm0523/DeviceInformation/findDeviceByDeviceInformation.action\",\r\n");
+      out.write("       $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/DeviceInformation/findDeviceByDeviceInformation.action\",\r\n");
       out.write("       \t\t{\"buildingId\":buildId,\"floor\":floor,\"room\":room},function(obj){\r\n");
       out.write("          var $device=$(\"#deviceList\");\r\n");
       out.write("           $device.html(\"<option>-请选择-</option>\");\r\n");
@@ -156,7 +163,9 @@ public final class itemList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            type: \"get\",\r\n");
       out.write("            dataType: \"json\",\r\n");
       out.write("            contentType: \"application/json;charset=utf-8\",\r\n");
-      out.write("            url: \"http://localhost:8080/ssm0523/DeviceInformation/findDeviceByDeviceInformation.action\",\r\n");
+      out.write("            url: \"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/DeviceInformation/findDeviceByDeviceInformation.action\",\r\n");
       out.write("            data:{\"buildingId\":buildId,\"floor\":floor,\"room\":room},\r\n");
       out.write("            success: function (data) {\r\n");
       out.write("               \r\n");

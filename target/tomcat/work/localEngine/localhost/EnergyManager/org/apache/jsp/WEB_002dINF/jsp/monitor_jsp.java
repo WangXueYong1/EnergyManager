@@ -56,6 +56,7 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("<title>Insert title here</title>\r\n");
+      out.write("<link rel=\"shortcut icon\" href=\"#\" />\r\n");
       out.write("<script type=\"text/javascript\"\r\n");
       out.write("\tsrc=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
@@ -112,7 +113,9 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\r\n");
       out.write("\t\tfunction findFloor(){\r\n");
       out.write("\t        var $buildId=$(\"#buildingList\").val();\r\n");
-      out.write("\t        $.get(\"http://localhost:8080/ssm0523/DeviceInformation/findFloorByBuilding.action\",{\"buildingId\":$buildId},function(obj){\r\n");
+      out.write("\t        $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/DeviceInformation/findFloorByBuilding.action\",{\"buildingId\":$buildId},function(obj){\r\n");
       out.write("\t           var $city=$(\"#floorList\");\r\n");
       out.write("\t            $city.html(\"\");\r\n");
       out.write("\t            if(obj!=null){\r\n");
@@ -125,7 +128,9 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\tfunction findRoom(){\r\n");
       out.write("\t\t\t var $buildId=$(\"#buildingList\").val();\r\n");
       out.write("\t\t     var $floor=$(\"#floorList\").val();\r\n");
-      out.write("\t\t     $.get(\"http://localhost:8080/ssm0523/DeviceInformation/findRoomByBuildingFloor.action\",{\"buildingId\":$buildId,\"floor\":$floor},function(obj){\r\n");
+      out.write("\t\t     $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/DeviceInformation/findRoomByBuildingFloor.action\",{\"buildingId\":$buildId,\"floor\":$floor},function(obj){\r\n");
       out.write("\t\t        var $city=$(\"#roomList\");\r\n");
       out.write("\t\t         $city.html(\"\");\r\n");
       out.write("\t\t         if(obj!=null){\r\n");
@@ -145,7 +150,9 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t var buildId=$(\"#buildingList\").val();\r\n");
       out.write("             var floor=$(\"#floorList\").val();\r\n");
       out.write("             var room=$(\"#roomList\").val();\r\n");
-      out.write("             $.get(\"http://localhost:8080/ssm0523/DeviceInformation/findDeviceByDeviceInformation.action\",{\"buildingId\":buildId,\"floor\":floor,\"room\":room},function(obj){\r\n");
+      out.write("             $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/DeviceInformation/findDeviceByDeviceInformation.action\",{\"buildingId\":buildId,\"floor\":floor,\"room\":room},function(obj){\r\n");
       out.write("                var $device=$(\"#deviceList\");\r\n");
       out.write("                 $device.html(\"<option>-请选择-</option>\");\r\n");
       out.write("                 if(obj!=null){\r\n");
@@ -195,7 +202,9 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            var startTime=$(\"#startTime\").val();           \r\n");
       out.write("            var endTime=$(\"#endTime\").val();            \r\n");
       out.write("            var data={\"startTime\":startTime,\"endTime\":endTime,\"deviceId\":deviceId};\r\n");
-      out.write("            $.get(\"http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation.action\"\r\n");
+      out.write("            $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/deviceStatus/findDeviceStatusByDeviceInformation.action\"\r\n");
       out.write("           \t\t\t  ,data,function(obj){\r\n");
       out.write("           \t\t\t\toption.title= {text : '实际功耗'},\r\n");
       out.write("           \t\t\t\toption.legend={data:['实际功耗']};\r\n");
@@ -223,7 +232,9 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t            var startTime=$(\"#startTime\").val();           \r\n");
       out.write("\t            var endTime=$(\"#endTime\").val();            \r\n");
       out.write("\t            var data={\"startTime\":startTime,\"endTime\":endTime,\"deviceId\":deviceId};\r\n");
-      out.write("\t            $.get(\"http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation2.action\"\r\n");
+      out.write("\t            $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/deviceStatus/findDeviceStatusByDeviceInformation2.action\"\r\n");
       out.write("\t           \t\t\t  ,data,function(obj){\r\n");
       out.write("\t           \t\t\t\t/* myChart =echarts.init(document.getElementById('main0'));\r\n");
       out.write("\t           \t\t\t\tvar dataLegend = [ '空调1' ];\r\n");
@@ -260,7 +271,9 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t            var startTime=$(\"#startTime\").val();           \r\n");
       out.write("\t            var endTime=$(\"#endTime\").val();            \r\n");
       out.write("\t            var data={\"startTime\":startTime,\"endTime\":endTime,\"deviceId\":deviceId};\r\n");
-      out.write("\t            $.get(\"http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation3.action\"\r\n");
+      out.write("\t            $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/deviceStatus/findDeviceStatusByDeviceInformation3.action\"\r\n");
       out.write("\t           \t\t\t  ,data,function(obj){\r\n");
       out.write("\t           \t\t\t\t/* myChart =echarts.init(document.getElementById('main0'));\r\n");
       out.write("\t           \t\t\t\toption.series[0].data =obj.data;\r\n");
@@ -301,7 +314,9 @@ public final class monitor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t            var startTime=$(\"#startTime\").val();           \r\n");
       out.write("\t            var endTime=$(\"#endTime\").val();            \r\n");
       out.write("\t            var data={\"startTime\":startTime,\"endTime\":endTime,\"deviceId\":deviceId};\r\n");
-      out.write("\t            $.get(\"http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation4.action\"\r\n");
+      out.write("\t            $.get(\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pageContext.request.contextPath }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("/deviceStatus/findDeviceStatusByDeviceInformation4.action\"\r\n");
       out.write("\t           \t\t\t  ,data,function(obj){\r\n");
       out.write("\t           \t\t\t\toption.title= {text : '实际功耗预测功耗对比'},\r\n");
       out.write("\t           \t\t\t\toption.legend={data:['实际功耗','预测功耗']};\r\n");

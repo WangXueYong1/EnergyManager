@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="shortcut icon" href="#" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript"
@@ -57,7 +58,7 @@
 		
 		function findFloor(){
 	        var $buildId=$("#buildingList").val();
-	        $.get("http://localhost:8080/ssm0523/DeviceInformation/findFloorByBuilding.action",{"buildingId":$buildId},function(obj){
+	        $.get("${pageContext.request.contextPath }/DeviceInformation/findFloorByBuilding.action",{"buildingId":$buildId},function(obj){
 	           var $city=$("#floorList");
 	            $city.html("");
 	            if(obj!=null){
@@ -70,7 +71,7 @@
 		function findRoom(){
 			 var $buildId=$("#buildingList").val();
 		     var $floor=$("#floorList").val();
-		     $.get("http://localhost:8080/ssm0523/DeviceInformation/findRoomByBuildingFloor.action",{"buildingId":$buildId,"floor":$floor},function(obj){
+		     $.get("${pageContext.request.contextPath }/DeviceInformation/findRoomByBuildingFloor.action",{"buildingId":$buildId,"floor":$floor},function(obj){
 		        var $city=$("#roomList");
 		         $city.html("");
 		         if(obj!=null){
@@ -90,7 +91,7 @@
 			 var buildId=$("#buildingList").val();
              var floor=$("#floorList").val();
              var room=$("#roomList").val();
-             $.get("http://localhost:8080/ssm0523/DeviceInformation/findDeviceByDeviceInformation.action",{"buildingId":buildId,"floor":floor,"room":room},function(obj){
+             $.get("${pageContext.request.contextPath }/DeviceInformation/findDeviceByDeviceInformation.action",{"buildingId":buildId,"floor":floor,"room":room},function(obj){
                 var $device=$("#deviceList");
                  $device.html("<option>-请选择-</option>");
                  if(obj!=null){
@@ -140,7 +141,7 @@
             var startTime=$("#startTime").val();           
             var endTime=$("#endTime").val();            
             var data={"startTime":startTime,"endTime":endTime,"deviceId":deviceId};
-            $.get("http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation.action"
+            $.get("${pageContext.request.contextPath }/deviceStatus/findDeviceStatusByDeviceInformation.action"
            			  ,data,function(obj){
            				option.title= {text : '实际功耗'},
            				option.legend={data:['实际功耗']};
@@ -168,7 +169,7 @@
 	            var startTime=$("#startTime").val();           
 	            var endTime=$("#endTime").val();            
 	            var data={"startTime":startTime,"endTime":endTime,"deviceId":deviceId};
-	            $.get("http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation2.action"
+	            $.get("${pageContext.request.contextPath }/deviceStatus/findDeviceStatusByDeviceInformation2.action"
 	           			  ,data,function(obj){
 	           				/* myChart =echarts.init(document.getElementById('main0'));
 	           				var dataLegend = [ '空调1' ];
@@ -205,7 +206,7 @@
 	            var startTime=$("#startTime").val();           
 	            var endTime=$("#endTime").val();            
 	            var data={"startTime":startTime,"endTime":endTime,"deviceId":deviceId};
-	            $.get("http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation3.action"
+	            $.get("${pageContext.request.contextPath }/deviceStatus/findDeviceStatusByDeviceInformation3.action"
 	           			  ,data,function(obj){
 	           				/* myChart =echarts.init(document.getElementById('main0'));
 	           				option.series[0].data =obj.data;
@@ -246,7 +247,7 @@
 	            var startTime=$("#startTime").val();           
 	            var endTime=$("#endTime").val();            
 	            var data={"startTime":startTime,"endTime":endTime,"deviceId":deviceId};
-	            $.get("http://localhost:8080/ssm0523/deviceStatus/findDeviceStatusByDeviceInformation4.action"
+	            $.get("${pageContext.request.contextPath }/deviceStatus/findDeviceStatusByDeviceInformation4.action"
 	           			  ,data,function(obj){
 	           				option.title= {text : '实际功耗预测功耗对比'},
 	           				option.legend={data:['实际功耗','预测功耗']};
