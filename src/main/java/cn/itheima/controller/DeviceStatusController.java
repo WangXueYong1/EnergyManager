@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +34,9 @@ public class DeviceStatusController {
 
 	@Autowired
 	private DeviceStatusMapper deviceStatusMapper;
-
+	ThreadPoolExecutor executor = new ThreadPoolExecutor(
+			5, 10, 200, TimeUnit.MILLISECONDS,
+			new ArrayBlockingQueue<Runnable>(5));
 	Gson gson = new Gson();
 	int[] layer = { 10, 10, 1 };
 
@@ -52,7 +57,8 @@ public class DeviceStatusController {
 		int port = Integer.parseInt(args[0]);
 		try {
 			Thread t = new GreetingServer(port);
-			t.run();
+			executor.execute(t);
+			//t.run();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
