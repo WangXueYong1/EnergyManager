@@ -1,6 +1,6 @@
 #EnergyManager
 
-#写字楼能耗管理系统简介
+#写字楼能耗管理系统简介（maven工程版本）
 
 项目采用SpringMVC + Spring + MyBatis框架， Maven管理依赖包。
 
